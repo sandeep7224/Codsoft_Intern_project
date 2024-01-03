@@ -1,0 +1,39 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <sstream>
+using namespace std;
+int countingWords(const string& filename)
+{
+    ifstream file(filename);
+    if (!file) {
+        cout << "Error in opening the file: " << filename << endl;
+        return -1;
+    }
+    string accesstext;
+    int wordcount = 0;
+    while(getline(file, accesstext)) {
+        istringstream inputword(accesstext);
+        string word;
+        while (inputword >> word) {
+            wordcount++;
+        }
+    }
+
+    return wordcount;
+}
+
+int main()
+{
+    string filename;
+    cout << "Enter Name of the your File ";
+    getline(cin, filename);
+    cout<<"\n";
+    int total_no_Words = countingWords(filename);
+    if (total_no_Words != -1)
+    {
+        cout << "The Total number of words in the given file "<<filename<<" is equal to " << total_no_Words << endl;
+        cout<<endl;
+    }
+     return 0;
+}
