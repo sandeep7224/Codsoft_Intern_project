@@ -1,0 +1,72 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+  char k;
+  int c;
+  float num1, num2,d;
+  cout<<"                       Welcome to Basic arithmetic calculator\n"<<endl;
+  do{
+  cout<<"1. Addition.\n";
+  cout<<"2. Substraction.\n";
+  cout<<"3. Multiplycation.\n";
+  cout<<"4. Division.\n"<<endl;
+  cout<<"Enter your choice = ";
+  cin>>c;
+ 
+  cout << "Enter two operands: \n";
+  cout<<"First number = ";
+  cin >> num1 ;
+  cout<<"Second number = ";
+  cin>>num2;
+  cout<<"\n";
+
+  switch(c) {
+
+    case 1:
+      cout <<"Additoion of " <<num1<<" and "<<num2<< " = " <<num1+num2<<endl;
+      cout<<"\n";
+      break;
+
+    case 2:
+      cout <<"Substraction of " <<num1<<" and "<<num2<< " = " <<num1-num2<<endl;
+      cout<<"\n";
+      break;
+
+    case 3:
+      cout <<"Multiplycation of " <<num1<<" and "<<num2<< " = " <<num1*num2<<endl;
+      cout<<"\n";
+      break;
+
+    case 4:
+       try  /* Here i use exception handling because if user input the Denominator
+       0 the program will show a message and terminate the program*/
+       {
+           if(num2 == 0)
+           {
+               throw(num2);
+           }
+           d = num1/num2;
+           cout<<"Division of "<<num1<<" and "<<num2<<" = "<<d;
+       }
+       catch(float q)
+       {
+           cout<<"Denominator can not be zero "<< q<<"\n";  
+       }
+      cout<<"\n";
+      break;
+
+    default:
+      cout<<"You entered the wrong number\n";
+      break;
+  }
+  cout<<"Do you want to Continue\n";
+  cout<<"Yes = y\n";
+  cout<<"No = press any key \n";
+  cin>>k;
+  cout<<"\n";
+  }
+  while(k=='y');
+  cout<<"\n";
+  return 0;
+}
